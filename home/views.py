@@ -1,8 +1,10 @@
 from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .models import BaseHomeModel, FeedbackModel, SocialMediaModel, PartnerLogoModel
-from .serializers import BaseHomeSerializer, FeedbackSerializer, SocialMediaSerializer, PartnerLogoSerializer
+from .models import BaseHomeModel, FeedbackModel, SocialMediaModel, PartnerLogoModel, ReserveModel
+from .serializers import BaseHomeSerializer, FeedbackSerializer, SocialMediaSerializer, PartnerLogoSerializer,\
+    ReserveSerializer
+from rest_framework import status
 
 
 class HomeView(APIView):
@@ -35,3 +37,14 @@ class PartnerLogoView(APIView):
         ser_partner_logo = PartnerLogoSerializer(instance=partner_logo, many=True)
 
         return Response(data={'partner_logo': ser_partner_logo.data})
+
+
+class ReserveView(APIView):
+    def post(self, request):
+        form = request.data
+        ser_form = ReserveSerializer(data=form)
+        if ser_form.is_valid():
+            ser_form.save()
+            return Response(data='registered!', status=status.HTTP_201_CREATED)
+        else:
+            return Response(data='invalid data', status=status.HTTP_203_NON_AUTHORITATIVE_INFORMATION)

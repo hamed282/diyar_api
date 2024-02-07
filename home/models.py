@@ -39,3 +39,11 @@ class SocialMediaModel(models.Model):
     logo = models.ImageField(upload_to='images/social_media/')
     address = models.CharField(max_length=200)
     priority = models.IntegerField()
+
+
+class ReserveModel(models.Model):
+    phone_number = models.CharField(max_length=30)
+    called = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f'{self.phone_number}'
