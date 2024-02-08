@@ -1,5 +1,6 @@
 from django.db import models
 from accounts.models import User
+from django_ckeditor_5.fields import CKEditor5Field
 
 
 class SuccessVisaModel(models.Model):
@@ -15,7 +16,7 @@ class BaseHomeModel(models.Model):
     fix_rejection = models.IntegerField()
     founder_image = models.ImageField(upload_to='images/home/')
     founder_video = models.FileField(upload_to='videos/home/')
-    content_bottom = models.TextField(max_length=10000)
+    content_bottom = CKEditor5Field(config_name='extends')
     phone = models.CharField(max_length=30)
     email = models.EmailField()
     address = models.CharField(max_length=100)

@@ -1,3 +1,9 @@
 from django.contrib import admin
+from .models import PodcastModel
 
-# Register your models here.
+
+class PodcastAdmin(admin.ModelAdmin):
+    list_display = ['title', 'sub_title', 'created']
+
+
+admin.site.register(PodcastModel, PodcastAdmin)
