@@ -57,3 +57,16 @@ class ReserveModel(models.Model):
 
     def __str__(self):
         return f'{self.phone_number}'
+
+
+class AboutPersonModel(models.Model):
+    image = models.ImageField(upload_to='images/about/person/')
+    full_name = models.CharField(max_length=100)
+    job = models.CharField(max_length=50)
+
+
+class AboutModel(models.Model):
+    image = models.ImageField(upload_to='images/about/')
+    content = CKEditor5Field(config_name='extends')
+    video = models.FileField(upload_to='videos/about/')
+

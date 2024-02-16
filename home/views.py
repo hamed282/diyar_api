@@ -1,9 +1,10 @@
 from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .models import BaseHomeModel, FeedbackModel, SocialMediaModel, PartnerLogoModel, ReserveModel, BenefitModel
+from .models import BaseHomeModel, FeedbackModel, SocialMediaModel, PartnerLogoModel, ReserveModel, BenefitModel,\
+    AboutModel, AboutPersonModel
 from .serializers import BaseHomeSerializer, FeedbackSerializer, SocialMediaSerializer, PartnerLogoSerializer,\
-    ReserveSerializer, BenefitSerializer
+    ReserveSerializer, BenefitSerializer, AboutSerializer, AboutPersonSerializer
 from rest_framework import status
 
 
@@ -55,3 +56,14 @@ class ReserveView(APIView):
             return Response(data='registered!', status=status.HTTP_201_CREATED)
         else:
             return Response(data='invalid data', status=status.HTTP_203_NON_AUTHORITATIVE_INFORMATION)
+
+
+class AboutView(APIView):
+    def get(self, request):
+        about = AboutModel.objects.all()
+        ser_about = AboutSerializer(instance=about, many=True)
+
+        person = AboutPersonModel.objects.all()
+        ser_person = AboutPersonSerializer(instance=person, many=True)
+
+        return Response(data={'about': ser_about.data, 'person': ser_person.data})

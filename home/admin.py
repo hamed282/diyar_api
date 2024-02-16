@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import BaseHomeModel, FeedbackModel, SocialMediaModel, PartnerLogoModel, ReserveModel, BenefitModel
+from .models import BaseHomeModel, FeedbackModel, SocialMediaModel, PartnerLogoModel, ReserveModel, BenefitModel,\
+    AboutModel, AboutPersonModel
 
 
 admin.site.register(BaseHomeModel)
@@ -15,3 +16,5 @@ class ReserveAdmin(admin.ModelAdmin):
 admin.site.register(ReserveModel, ReserveAdmin)
 
 admin.site.register(BenefitModel)
+admin.site.register(AboutModel)
+admin.site.register(AboutPersonModel)
