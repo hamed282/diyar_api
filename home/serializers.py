@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import BaseHomeModel, FeedbackModel, SocialMediaModel, PartnerLogoModel, ReserveModel
+from .models import BaseHomeModel, FeedbackModel, SocialMediaModel, PartnerLogoModel, ReserveModel, BenefitModel
 
 
 class BaseHomeSerializer(serializers.ModelSerializer):
@@ -11,6 +11,12 @@ class BaseHomeSerializer(serializers.ModelSerializer):
 class FeedbackSerializer(serializers.ModelSerializer):
     class Meta:
         model = FeedbackModel
+        fields = '__all__'
+
+
+class BenefitSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = BenefitModel
         fields = '__all__'
 
 

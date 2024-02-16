@@ -11,9 +11,18 @@ class FixRejectionModel(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='user_fix_reject')
 
 
+class BenefitModel(models.Model):
+    row = models.TextField()
+
+    def __str__(self):
+        return self.row
+
+
 class BaseHomeModel(models.Model):
+    user_count = models.IntegerField()
     success_visa = models.IntegerField()
     fix_rejection = models.IntegerField()
+    # content_up = models.ForeignKey(BenefitModel, on_delete=models.CASCADE, related_name='benefit_home')
     founder_image = models.ImageField(upload_to='images/home/')
     founder_video = models.FileField(upload_to='videos/home/')
     content_bottom = CKEditor5Field(config_name='extends')

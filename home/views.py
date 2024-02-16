@@ -1,9 +1,9 @@
 from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .models import BaseHomeModel, FeedbackModel, SocialMediaModel, PartnerLogoModel, ReserveModel
+from .models import BaseHomeModel, FeedbackModel, SocialMediaModel, PartnerLogoModel, ReserveModel, BenefitModel
 from .serializers import BaseHomeSerializer, FeedbackSerializer, SocialMediaSerializer, PartnerLogoSerializer,\
-    ReserveSerializer
+    ReserveSerializer, BenefitSerializer
 from rest_framework import status
 
 
@@ -15,11 +15,18 @@ class HomeView(APIView):
         return Response(data={'home': ser_base_home.data})
 
 
+class BenefitView(APIView):
+    def get(self, request):
+        benefit = BenefitModel.objects.all()
+        ser_benefit = BenefitSerializer(instance=benefit, many=True)
+
+        return Response(data=ser_benefit.data)
+
+
 class FeedbackView(APIView):
     def get(self, request):
         feedback = FeedbackModel.objects.all()
         ser_feedback = FeedbackSerializer(instance=feedback, many=True)
-
         return Response(data={'feedback': ser_feedback.data})
 
 

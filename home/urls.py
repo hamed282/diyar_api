@@ -10,4 +10,5 @@ urlpatterns = [
     path('social/', views.SocialMediaView.as_view(), name='social'),
     path('partner/', views.PartnerLogoView.as_view(), name='partner'),
     path('reserve/', views.ReserveView.as_view(), name='reserve'),
+    path('benefit/', views.BenefitView.as_view(), name='benefit'),
 ]
