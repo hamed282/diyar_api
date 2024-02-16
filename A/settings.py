@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'recommender.apps.RecommenderConfig',
     'podcast.apps.PodcastConfig',
     'django_ckeditor_5',
+    'programs.apps.ProgramsConfig',
 ]
 
 MIDDLEWARE = [

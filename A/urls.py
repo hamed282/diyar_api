@@ -12,6 +12,7 @@ urlpatterns = [
     path('api/journal/', include('journal.urls', namespace='journal')),
     path('api/recommender/', include('recommender.urls', namespace='recommender')),
     path('api/podcast/', include('podcast.urls', namespace='podcast')),
+    path('api/programs/', include('programs.urls', namespace='programs')),
     path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
     path('api/schema/swagger-ui/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
     path('api/schema/redoc/', SpectacularRedocView.as_view(url_name='schema'), name='redoc'),
