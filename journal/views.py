@@ -11,10 +11,13 @@ class JournalListView(APIView):
         get parameter:
         1. limit
         """
-        journal_limit = int(self.request.query_params.get('limit'))
+        journal_limit = self.request.query_params.get('limit', None)
         # journal_sort = self.request.query_params.get('sort')
 
-        journal = JournalModel.objects.all().order_by('-created')[:journal_limit]
+        if journal_limit is None:
+            journal = JournalModel.objects.all().order_by('-created')
+        else:
+            journal = JournalModel.objects.all().order_by('-created')[:int(journal_limit)]
         # journal = journal.order_by('created')
         ser_journal = JournalSerializer(instance=journal, many=True)
 
