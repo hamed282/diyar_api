@@ -293,3 +293,5 @@ CKEDITOR_5_CONFIGS = {
         },
     },
 }
+
+ALLOW_UNICODE_SLUGS = True

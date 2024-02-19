@@ -21,7 +21,7 @@ class ProgramModel(models.Model):
     slug = models.SlugField()
 
     def save(self, **kwargs):
-        self.slug = slugify(self.title_link)
+        self.slug = slugify(self.title_link, allow_unicode=True)
         super(ProgramModel, self).save(**kwargs)
 
     def __str__(self):

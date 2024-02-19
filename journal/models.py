@@ -12,7 +12,7 @@ class JournalModel(models.Model):
     slug = models.SlugField()
 
     def save(self, **kwargs):
-        self.slug = slugify(self.title)
+        self.slug = slugify(self.title, allow_unicode=True)
         super(JournalModel, self).save(**kwargs)
 
     def __str__(self):
