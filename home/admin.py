@@ -3,7 +3,17 @@ from .models import BaseHomeModel, FeedbackModel, SocialMediaModel, PartnerLogoM
     AboutModel, AboutPersonModel
 
 
-admin.site.register(BaseHomeModel)
+class BenefitModelInline(admin.StackedInline):
+    model = BenefitModel
+
+
+class BaseHomeAdmin(admin.ModelAdmin):
+    inlines = [BenefitModelInline]
+
+
+admin.site.register(BaseHomeModel, BaseHomeAdmin)
+
+# admin.site.register(BaseHomeModel)
 admin.site.register(FeedbackModel)
 admin.site.register(SocialMediaModel)
 admin.site.register(PartnerLogoModel)
@@ -15,6 +25,6 @@ class ReserveAdmin(admin.ModelAdmin):
 
 admin.site.register(ReserveModel, ReserveAdmin)
 
-admin.site.register(BenefitModel)
+# admin.site.register(BenefitModel)
 admin.site.register(AboutModel)
 admin.site.register(AboutPersonModel)

@@ -16,7 +16,7 @@ class ProgramModel(models.Model):
     icon = models.ImageField(upload_to='images/programs/icon/')
 
     title = models.CharField(max_length=100)
-    description = models.ForeignKey(ProgramDescriptionModel, on_delete=models.CASCADE, related_name='program_descr')
+    description = models.OneToOneField(ProgramDescriptionModel, on_delete=models.CASCADE, related_name='program_descr')
     content = CKEditor5Field(config_name='extends')
     slug = models.SlugField()
 
