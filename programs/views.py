@@ -22,7 +22,7 @@ class ProgramView(APIView):
         """
         program_slug = self.request.query_params.get('program_slug')
 
-        journal = get_object_or_404(ProgramModel, slug=program_slug)
-        ser_program = ProgramSerializer(instance=journal)
+        program = get_object_or_404(ProgramModel, slug=program_slug)
+        ser_program = ProgramSerializer(instance=program)
 
         return Response(data=ser_program.data)

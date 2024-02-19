@@ -35,6 +35,8 @@ INSTALLED_APPS = [
     'podcast.apps.PodcastConfig',
     'django_ckeditor_5',
     'programs.apps.ProgramsConfig',
+    'rest_framework_simplejwt.token_blacklist',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [

@@ -48,11 +48,11 @@ class UserLoginView(APIView):
         1. email
         2. password
         """
-        form = request.POST
+        form = request.data
         ser_data = UserLoginSerializer(data=form)
         if ser_data.is_valid():
             try:
-                user = authenticate(request, email=form['email'], password=form['password'])
+                user = authenticate(email=form['email'], password=form['password'])
                 if user is not None:
                     user = User.objects.get(email=form['email'])
                     token_access = AccessToken.for_user(user)

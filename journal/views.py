@@ -12,7 +12,6 @@ class JournalListView(APIView):
         1. limit
         """
         journal_limit = self.request.query_params.get('limit', None)
-        # journal_sort = self.request.query_params.get('sort')
 
         if journal_limit is None:
             journal = JournalModel.objects.all().order_by('-created')
