@@ -13,9 +13,45 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-9z9b=aslf6u%(4#71d6kai$2$(cuff694ci4p%q_w&lzf9&7$+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+if DEBUG:
+    ALLOWED_HOSTS = ['*']
+
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
+
+    STATIC_ROOT = "staticfiles"
+    STATIC_URL = 'static/'
+    STATICFILES_DIRS = (
+        os.path.join(BASE_DIR, 'static/'),
+    )
+    CSRF_TRUSTED_ORIGINS = ['https://*.rest.healfit.ae', 'https://*.127.0.0.1']
+
+else:
+    ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'api.hamidehsakak.com', 'www.api.hamidehsakak.com'] #https://healfit.ae
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'hamidehs_diyar',
+            'USER': 'hamidehs_diyar_user ',
+            'PASSWORD': '#@}ej#F]NP0b',
+            'HOST': 'localhost',
+            'PORT': '3306',
+        }
+    }
+
+    STATIC_URL = 'static/'
+    STATIC_ROOT = "staticfiles"
+    STATICFILES_DIRS = (
+        os.path.join(BASE_DIR, 'static/'),
+    )
+
+    CSRF_TRUSTED_ORIGINS = ['https://*.rest.healfit.ae', 'https://*.127.0.0.1']
 
 
 # Application definition
@@ -73,14 +109,6 @@ WSGI_APPLICATION = 'A.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
-
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 
@@ -114,12 +142,6 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
-
-STATIC_URL = 'django-static/'
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static/'),
-)
-STATIC_ROOT = BASE_DIR / 'django-static'
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media/'
