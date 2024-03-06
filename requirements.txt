@@ -20,3 +20,4 @@ PyJWT~=2.8.0
 mysqlclient
 drf_spectacular
 django_ckeditor_5
+rest_framework_simplejwt
