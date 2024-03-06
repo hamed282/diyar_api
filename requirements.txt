@@ -19,3 +19,4 @@ inflection~=0.5.1
 PyJWT~=2.8.0
 mysqlclient
 drf_spectacular
+django_ckeditor_5
