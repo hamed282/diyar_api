@@ -18,3 +18,4 @@ uritemplate~=4.1.1
 inflection~=0.5.1
 PyJWT~=2.8.0
 mysqlclient
+drf_spectacular
