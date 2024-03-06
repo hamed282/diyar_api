@@ -30,7 +30,7 @@ if DEBUG:
     STATICFILES_DIRS = (
         os.path.join(BASE_DIR, 'static/'),
     )
-    CSRF_TRUSTED_ORIGINS = ['https://*.rest.healfit.ae', 'https://*.127.0.0.1']
+    CSRF_TRUSTED_ORIGINS = ['https://*.api.hamidehsakak.com', 'https://*.127.0.0.1']
 
 else:
     ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'api.hamidehsakak.com', 'www.api.hamidehsakak.com'] #https://healfit.ae
@@ -51,7 +51,7 @@ else:
         os.path.join(BASE_DIR, 'static/'),
     )
 
-    CSRF_TRUSTED_ORIGINS = ['https://*.rest.healfit.ae', 'https://*.127.0.0.1']
+    CSRF_TRUSTED_ORIGINS = ['https://*.api.hamidehsakak.com', 'https://*.127.0.0.1']
 
 
 # Application definition
