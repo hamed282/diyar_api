@@ -1,4 +1,4 @@
-Django~=5.0.1
+Django~=4.2
 djangorestframework~=3.14.0
 requests~=2.31.0
 pillow~=10.2.0
@@ -17,3 +17,4 @@ setuptools~=63.2.0
 uritemplate~=4.1.1
 inflection~=0.5.1
 PyJWT~=2.8.0
+mysqlclient
