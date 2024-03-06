@@ -21,5 +21,4 @@ mysqlclient
 drf_spectacular
 django_ckeditor_5
 djangorestframework-simplejwt
-corsheaders
-
+django-cors-headers
