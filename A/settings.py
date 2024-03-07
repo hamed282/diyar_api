@@ -38,7 +38,7 @@ else:
         'default': {
             'ENGINE': 'django.db.backends.mysql',
             'NAME': 'hamidehs_diyar',
-            'USER': 'hamidehs_diyar_user ',
+            'USER': 'hamidehs_diyar_user',
             'PASSWORD': '#@}ej#F]NP0b',
             'HOST': 'localhost',
             'PORT': '3306',
