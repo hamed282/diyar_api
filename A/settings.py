@@ -33,13 +33,13 @@ if DEBUG:
     CSRF_TRUSTED_ORIGINS = ['https://*.api.hamidehsakak.com', 'https://*.127.0.0.1']
 
 else:
-    ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'api.hamidehsakak.com', 'www.api.hamidehsakak.com'] #https://healfit.ae
+    ALLOWED_HOSTS = ['localhost', '127.0.0.1','eudeult1.armadaservers.com', 'api.hamidehsakak.com', 'www.api.hamidehsakak.com']
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
             'NAME': 'hamidehs_diyar',
             'USER': 'hamidehs_diyar_user',
-            'PASSWORD': '#@}ej#F]NP0b',
+            'PASSWORD': 'mwDx5qXq=wcc',
             'HOST': 'localhost',
             'PORT': '3306',
         }
