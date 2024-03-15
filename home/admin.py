@@ -10,6 +10,7 @@ class FeedbackAdmin(admin.ModelAdmin):
 
 class ReserveAdmin(admin.ModelAdmin):
     list_display = ['phone_number', 'called']
+    readonly_fields = ['phone_number']
 
 
 class BenefitModelInline(admin.StackedInline):

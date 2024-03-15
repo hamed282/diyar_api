@@ -37,8 +37,8 @@ class BaseHomeModel(models.Model):
     address = models.CharField(max_length=100)
 
     class Meta:
-        verbose_name = 'Settings'
-        verbose_name_plural = 'Settings'
+        verbose_name = 'Home Page'
+        verbose_name_plural = 'Home Page'
 
     def clean(self):
         if not self.pk and BaseHomeModel.objects.exists():
@@ -46,6 +46,9 @@ class BaseHomeModel(models.Model):
             raise ValidationError(
                 "There can be only one Settings you can not add another"
             )
+
+    def __str__(self):
+        return f'Home Page'
 
 
 class PartnerLogoModel(models.Model):
