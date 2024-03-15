@@ -27,4 +27,6 @@ class ProgramModel(models.Model):
     def __str__(self):
         return f'{self.slug}'
 
-
+    class Meta:
+        verbose_name = 'Program'
+        verbose_name_plural = 'Program'

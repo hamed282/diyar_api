@@ -17,3 +17,7 @@ class JournalModel(models.Model):
 
     def __str__(self):
         return f'{self.slug}'
+
+    class Meta:
+        verbose_name = 'Journal'
+        verbose_name_plural = 'Journal'
