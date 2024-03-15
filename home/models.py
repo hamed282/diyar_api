@@ -30,10 +30,18 @@ class BaseHomeModel(models.Model):
     email = models.EmailField()
     address = models.CharField(max_length=100)
 
+    class Meta:
+        verbose_name = 'Settings'
+        verbose_name_plural = 'Settings'
+
 
 class PartnerLogoModel(models.Model):
     name = models.CharField(max_length=64)
     logo = models.ImageField(upload_to='images/partner_logo/')
+
+    class Meta:
+        verbose_name = 'Partner Logo'
+        verbose_name_plural = 'Partner Logo'
 
 
 class FeedbackModel(models.Model):
@@ -43,12 +51,20 @@ class FeedbackModel(models.Model):
     rank = models.IntegerField()
     content = models.TextField(max_length=1024)
 
+    class Meta:
+        verbose_name = 'Feedback'
+        verbose_name_plural = 'Feedback'
+
 
 class SocialMediaModel(models.Model):
     name = models.CharField(max_length=32)
     logo = models.ImageField(upload_to='images/social_media/')
     address = models.CharField(max_length=200)
     priority = models.IntegerField()
+
+    class Meta:
+        verbose_name = 'Social Media'
+        verbose_name_plural = 'Social Media'
 
 
 class ReserveModel(models.Model):
@@ -58,11 +74,19 @@ class ReserveModel(models.Model):
     def __str__(self):
         return f'{self.phone_number}'
 
+    class Meta:
+        verbose_name = 'Reserve'
+        verbose_name_plural = 'Reserves'
+
 
 class AboutPersonModel(models.Model):
     image = models.ImageField(upload_to='images/about/person/')
     full_name = models.CharField(max_length=100)
     job = models.CharField(max_length=50)
+
+    class Meta:
+        verbose_name = 'About Person'
+        verbose_name_plural = 'About Person'
 
 
 class AboutModel(models.Model):
@@ -70,3 +94,6 @@ class AboutModel(models.Model):
     content = CKEditor5Field(config_name='extends')
     video = models.FileField(upload_to='videos/about/')
 
+    class Meta:
+        verbose_name = 'About'
+        verbose_name_plural = 'About'
