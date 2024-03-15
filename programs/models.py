@@ -16,10 +16,10 @@ class ProgramDescriptionModel(models.Model):
 
 
 class ProgramModel(models.Model):
-    title_link = models.CharField(max_length=100)
+    title_link = models.CharField(max_length=100, verbose_name='Icon Title')
     icon = models.ImageField(upload_to='images/programs/icon/')
 
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=100, verbose_name='Header')
     description = models.OneToOneField(ProgramDescriptionModel, on_delete=models.CASCADE, related_name='program_descr')
     content = CKEditor5Field(config_name='extends')
     slug = models.SlugField()

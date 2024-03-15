@@ -48,7 +48,7 @@ class FeedbackModel(models.Model):
     name = models.CharField(max_length=64)
     image = models.ImageField(upload_to='images/feedback/')
     city = models.CharField(max_length=64)
-    rank = models.IntegerField()
+    rate = models.IntegerField()
     content = models.TextField(max_length=1024)
 
     class Meta:

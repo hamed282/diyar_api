@@ -13,8 +13,13 @@ class BaseHomeAdmin(admin.ModelAdmin):
 
 admin.site.register(BaseHomeModel, BaseHomeAdmin)
 
-# admin.site.register(BaseHomeModel)
-admin.site.register(FeedbackModel)
+
+class FeedbackAdmin(admin.ModelAdmin):
+    list_display = ['name']
+    readonly_fields = ['name', 'image', 'city', 'rate', 'content']
+
+
+admin.site.register(FeedbackModel, FeedbackAdmin)
 admin.site.register(SocialMediaModel)
 admin.site.register(PartnerLogoModel)
 
