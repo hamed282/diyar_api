@@ -42,7 +42,7 @@ class EvaluationModel(models.Model):
 
 class ChildrenAgeModel(models.Model):
     user = models.ForeignKey(EvaluationModel, on_delete=models.CASCADE)
-    child_age = models.IntegerField()
+    child_age = models.IntegerField(verbose_name='Child Age')
 
     class Meta:
         verbose_name = 'Children Age'
@@ -52,9 +52,9 @@ class ChildrenAgeModel(models.Model):
 class EducationModel(models.Model):
     user = models.ForeignKey(EvaluationModel, on_delete=models.CASCADE)
     university = models.CharField(max_length=100)
-    r = models.CharField(max_length=100)
-    l = models.CharField(max_length=100)
-    d = models.CharField(max_length=100)
+    educational_field = models.CharField(max_length=100)
+    education_level = models.CharField(max_length=100)
+    graduation_date = models.CharField(max_length=100)
 
     class Meta:
         verbose_name = 'Education'
@@ -63,10 +63,10 @@ class EducationModel(models.Model):
 
 class WorkExperiencesModel(models.Model):
     user = models.ForeignKey(EvaluationModel, on_delete=models.CASCADE)
-    sh = models.CharField(max_length=100)
-    s = models.CharField(max_length=100)
-    m = models.CharField(max_length=100)
-    b = models.CharField(max_length=100)
+    workplace_company_name = models.CharField(max_length=100)
+    job_title = models.CharField(max_length=100)
+    contract_duration = models.CharField(max_length=100)
+    insurance_duration = models.CharField(max_length=100)
 
     class Meta:
         verbose_name = 'Work Experiences'
@@ -76,9 +76,9 @@ class WorkExperiencesModel(models.Model):
 class PartnerEducationModel(models.Model):
     user = models.ForeignKey(EvaluationModel, on_delete=models.CASCADE)
     university = models.CharField(max_length=100)
-    r = models.CharField(max_length=100)
-    l = models.CharField(max_length=100)
-    d = models.CharField(max_length=100)
+    educational_field = models.CharField(max_length=100)
+    education_level = models.CharField(max_length=100)
+    graduation_date = models.CharField(max_length=100)
 
     class Meta:
         verbose_name = 'Partner Education'
@@ -87,10 +87,10 @@ class PartnerEducationModel(models.Model):
 
 class PartnerWorkExperiencesModel(models.Model):
     user = models.ForeignKey(EvaluationModel, on_delete=models.CASCADE)
-    sh = models.CharField(max_length=100)
-    s = models.CharField(max_length=100)
-    m = models.CharField(max_length=100)
-    b = models.CharField(max_length=100)
+    workplace_company_name = models.CharField(max_length=100)
+    job_title = models.CharField(max_length=100)
+    contract_duration = models.CharField(max_length=100)
+    insurance_duration = models.CharField(max_length=100)
 
     class Meta:
         verbose_name = 'Partner Work Experiences'
