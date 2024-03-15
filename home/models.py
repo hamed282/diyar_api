@@ -1,6 +1,7 @@
 from django.db import models
 from accounts.models import User
 from django_ckeditor_5.fields import CKEditor5Field
+from django.core.exceptions import ValidationError
 
 
 class SuccessVisaModel(models.Model):
@@ -24,6 +25,7 @@ class BenefitModel(models.Model):
 
 
 class BaseHomeModel(models.Model):
+    objects = None
     user_count = models.IntegerField()
     success_visa = models.IntegerField()
     fix_rejection = models.IntegerField()
@@ -37,6 +39,13 @@ class BaseHomeModel(models.Model):
     class Meta:
         verbose_name = 'Settings'
         verbose_name_plural = 'Settings'
+
+    def clean(self):
+        if not self.pk and BaseHomeModel.objects.exists():
+            # This below line will render error by breaking page, you will see
+            raise ValidationError(
+                "There can be only one Settings you can not add another"
+            )
 
 
 class PartnerLogoModel(models.Model):

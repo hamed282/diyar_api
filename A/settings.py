@@ -13,7 +13,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-9z9b=aslf6u%(4#71d6kai$2$(cuff694ci4p%q_w&lzf9&7$+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 if DEBUG:
     ALLOWED_HOSTS = ['*']
@@ -82,6 +82,7 @@ INSTALLED_APPS = [
     'podcast.apps.PodcastConfig',
     'django_ckeditor_5',
     'programs.apps.ProgramsConfig',
+    'evaluation.apps.EvaluationConfig',
     'rest_framework_simplejwt.token_blacklist',
     'corsheaders',
 ]

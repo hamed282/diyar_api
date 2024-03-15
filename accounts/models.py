@@ -9,7 +9,7 @@ class User(AbstractBaseUser):
     phone_number = models.CharField(max_length=15, unique=True)
     national_code = models.CharField(max_length=15, unique=True)
     city = models.CharField(max_length=150)
-    email = models.CharField(max_length=100, unique=True)
+    email = models.EmailField(max_length=100, unique=True)
     password = models.CharField(max_length=100)
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
