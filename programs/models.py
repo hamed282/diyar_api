@@ -20,13 +20,13 @@ class ProgramModel(models.Model):
     content = CKEditor5Field(config_name='extends')
     slug = models.SlugField()
 
+    class Meta:
+        verbose_name = 'Program'
+        verbose_name_plural = 'Program'
+
     def save(self, **kwargs):
         self.slug = slugify(self.title_link, allow_unicode=True)
         super(ProgramModel, self).save(**kwargs)
 
     def __str__(self):
         return f'{self.slug}'
-
-    class Meta:
-        verbose_name = 'Program'
-        verbose_name_plural = 'Program'
