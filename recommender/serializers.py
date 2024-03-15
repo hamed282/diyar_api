@@ -6,4 +6,3 @@ class AnswerRecommenderSerializer(serializers.ModelSerializer):
     class Meta:
         model = AnswerRecommenderModel
         fields = '__all__'
-

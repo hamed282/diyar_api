@@ -9,6 +9,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/home/', include('home.urls', namespace='home')),
     path('api/accounts/', include('accounts.urls', namespace='accounts')),
+    path('api/evaluation/', include('evaluation.urls', namespace='evaluation')),
     path('api/journal/', include('journal.urls', namespace='journal')),
     path('api/recommender/', include('recommender.urls', namespace='recommender')),
     path('api/podcast/', include('podcast.urls', namespace='podcast')),
