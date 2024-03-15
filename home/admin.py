@@ -16,7 +16,7 @@ admin.site.register(BaseHomeModel, BaseHomeAdmin)
 
 class FeedbackAdmin(admin.ModelAdmin):
     list_display = ['name']
-    readonly_fields = ['name', 'image', 'city', 'rate', 'content']
+    # readonly_fields = ['name', 'image', 'city', 'rate', 'content']
 
 
 admin.site.register(FeedbackModel, FeedbackAdmin)

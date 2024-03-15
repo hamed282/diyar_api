@@ -18,6 +18,10 @@ class BenefitModel(models.Model):
     def __str__(self):
         return self.row
 
+    class Meta:
+        verbose_name = 'Benefit'
+        verbose_name_plural = 'Benefit'
+
 
 class BaseHomeModel(models.Model):
     user_count = models.IntegerField()
