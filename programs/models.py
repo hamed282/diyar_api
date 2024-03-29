@@ -1,6 +1,7 @@
 from django.db import models
 from django_ckeditor_5.fields import CKEditor5Field
 from django.utils.text import slugify
+from tinymce.models import HTMLField
 
 
 class ProgramDescriptionModel(models.Model):
@@ -21,7 +22,8 @@ class ProgramModel(models.Model):
 
     title = models.CharField(max_length=100, verbose_name='Header')
     description = models.OneToOneField(ProgramDescriptionModel, on_delete=models.CASCADE, related_name='program_descr')
-    content = CKEditor5Field(config_name='extends')
+    # content = CKEditor5Field(config_name='extends')
+    content = HTMLField()
     slug = models.SlugField()
 
     def save(self, **kwargs):

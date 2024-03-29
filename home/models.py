@@ -2,6 +2,7 @@ from django.db import models
 from accounts.models import User
 from django_ckeditor_5.fields import CKEditor5Field
 from django.core.exceptions import ValidationError
+from tinymce.models import HTMLField
 
 
 class SuccessVisaModel(models.Model):
@@ -31,7 +32,8 @@ class BaseHomeModel(models.Model):
     fix_rejection = models.IntegerField()
     founder_image = models.ImageField(upload_to='images/home/')
     founder_video = models.FileField(upload_to='videos/home/')
-    content_bottom = CKEditor5Field(config_name='extends')
+    # content_bottom = CKEditor5Field(config_name='extends')
+    content_bottom = HTMLField()
     phone = models.CharField(max_length=30)
     email = models.EmailField()
     address = models.CharField(max_length=100)
@@ -107,7 +109,8 @@ class AboutPersonModel(models.Model):
 
 class AboutModel(models.Model):
     image = models.ImageField(upload_to='images/about/')
-    content = CKEditor5Field(config_name='extends')
+    # content = CKEditor5Field(config_name='extends')
+    content = HTMLField()
     video = models.FileField(upload_to='videos/about/')
 
     class Meta:
