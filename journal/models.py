@@ -10,7 +10,7 @@ class JournalModel(models.Model):
     description = models.TextField()
     # content = CKEditor5Field(config_name='extends')
     content = HTMLField()
-    created = models.DateTimeField(auto_now_add=True)
+    created = models.DateField(auto_now_add=True)
     slug = models.SlugField()
 
     def save(self, **kwargs):
