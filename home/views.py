@@ -48,6 +48,10 @@ class PartnerLogoView(APIView):
 
 
 class ReserveView(APIView):
+    """
+    parameters:
+    1. phone_number
+    """
     def post(self, request):
         form = request.data
         ser_form = ReserveSerializer(data=form)

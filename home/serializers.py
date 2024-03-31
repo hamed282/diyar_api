@@ -33,10 +33,8 @@ class PartnerLogoSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class ReserveSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = ReserveModel
-        fields = '__all__'
+class ReserveSerializer(serializers.Serializer):
+    phone_number = serializers.CharField()
 
 
 class AboutPersonSerializer(serializers.ModelSerializer):
