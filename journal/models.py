@@ -1,5 +1,5 @@
 from django.db import models
-from django_ckeditor_5.fields import CKEditor5Field
+# from django_ckeditor_5.fields import CKEditor5Field
 from django.utils.text import slugify
 from tinymce.models import HTMLField
 
@@ -7,7 +7,7 @@ from tinymce.models import HTMLField
 class JournalModel(models.Model):
     title = models.CharField(max_length=100)
     banner = models.ImageField(upload_to='images/journal/')
-    description = models.TextField()
+    description = models.CharField(max_length=200)
     # content = CKEditor5Field(config_name='extends')
     content = HTMLField()
     created = models.DateField(auto_now_add=True)
