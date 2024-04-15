@@ -14,4 +14,4 @@ class JournalSerializer(serializers.ModelSerializer):
         # journal = JournalModel.objects.get(title=title_journal)
         # tags = journal.journal_tag.all()
         # tag_list = [tag.tag.tag for tag in tags]
-        return type(title_journal)
+        return f'{type(title_journal)}'
