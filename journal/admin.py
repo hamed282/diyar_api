@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import JournalModel, AddTagModel
+from .models import JournalModel, AddTagModel, TagModel
 
 
 class TagAdmin(admin.ModelAdmin):
@@ -16,4 +16,4 @@ class JournalAdmin(admin.ModelAdmin):
 
 
 admin.site.register(JournalModel, JournalAdmin)
-admin.site.register(AddTagModel, TagAdmin)
+admin.site.register(TagModel, TagAdmin)
