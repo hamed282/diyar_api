@@ -10,8 +10,8 @@ class JournalSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
     def get_tag(self, obj):
-        # product_name = obj
-        # product = ProductModel.objects.get(product=product_name)
-        # subcategories = product.subcategory_product.all()
-        # subcategory_list = [subcategory.subcategory.subcategory for subcategory in subcategories]
-        return 'tag'
+        journal_name = obj
+        journal = JournalModel.objects.get(product=journal_name)
+        tags = journal.journal_tag.all()
+        tag_list = [tag.tag.tag for tag in tags]
+        return tag_list

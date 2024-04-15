@@ -4,7 +4,25 @@ from django.utils.text import slugify
 from tinymce.models import HTMLField
 
 
+class TagModel(models.Model):
+    objects = None
+    tag = models.CharField(max_length=50)
+    slug = models.SlugField(max_length=100, unique=True)
+
+    class Meta:
+        verbose_name = 'Journal Tag'
+        verbose_name_plural = 'Journal Tag'
+
+    def save(self, **kwargs):
+        self.slug = slugify(self.tag)
+        super(TagModel, self).save(**kwargs)
+
+    def __str__(self):
+        return f'{self.slug}'
+
+
 class JournalModel(models.Model):
+    objects = None
     title = models.CharField(max_length=100)
     banner = models.ImageField(upload_to='images/journal/')
     description = models.CharField(max_length=200)
@@ -23,3 +41,12 @@ class JournalModel(models.Model):
     class Meta:
         verbose_name = 'Journal'
         verbose_name_plural = 'Journal'
+
+
+class AddTagModel(models.Model):
+    objects = None
+    tag = models.ForeignKey(TagModel, on_delete=models.CASCADE)
+    journal = models.ForeignKey(JournalModel, on_delete=models.CASCADE, related_name='journal_tag')
+
+    def __str__(self):
+        return f'{self.tag}'
