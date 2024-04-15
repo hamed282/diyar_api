@@ -3,7 +3,8 @@ from .models import JournalModel, AddTagModel, TagModel
 
 
 class TagAdmin(admin.ModelAdmin):
-    readonly_fields = ["slug"]
+    # readonly_fields = ["slug"]
+    list_display = ['tag']
 
 
 class TagInline(admin.TabularInline):
