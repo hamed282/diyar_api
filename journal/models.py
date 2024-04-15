@@ -7,18 +7,18 @@ from tinymce.models import HTMLField
 class TagModel(models.Model):
     objects = None
     tag = models.CharField(max_length=50)
-    slug = models.SlugField(max_length=100, unique=True)
+    # slug = models.SlugField(max_length=100, unique=True)
 
     class Meta:
         verbose_name = 'Journal Tag'
         verbose_name_plural = 'Journal Tag'
 
-    def save(self, **kwargs):
-        self.slug = slugify(self.tag)
-        super(TagModel, self).save(**kwargs)
+    # def save(self, **kwargs):
+    #     self.slug = slugify(self.tag)
+    #     super(TagModel, self).save(**kwargs)
 
     def __str__(self):
-        return f'{self.slug}'
+        return f'{self.tag}'
 
 
 class JournalModel(models.Model):
