@@ -34,6 +34,9 @@ class User(AbstractBaseUser):
         return self.is_admin
 
 
+class NewsletterSubscriptionModel(models.Model):
+    objects = None
+    email = models.EmailField(max_length=100, unique=True)
 # class OtpCode(models.Model):
 #     phone_number = models.CharField(max_length=20)
 #     code = models.IntegerField()

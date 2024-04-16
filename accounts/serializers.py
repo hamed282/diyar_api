@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import User
+from .models import User, NewsletterSubscriptionModel
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -11,3 +11,9 @@ class UserSerializer(serializers.ModelSerializer):
 class UserLoginSerializer(serializers.Serializer):
     email = serializers.EmailField()
     password = serializers.CharField(max_length=200)
+
+
+class NewsletterSubscriptionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = NewsletterSubscriptionModel
+        fields = ['email']

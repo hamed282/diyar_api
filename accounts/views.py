@@ -1,8 +1,8 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .models import User
+from .models import User, NewsletterSubscriptionModel
 from convert_numbers import persian_to_english
-from .serializers import UserSerializer, UserLoginSerializer
+from .serializers import UserSerializer, UserLoginSerializer, NewsletterSubscriptionSerializer
 from rest_framework import status
 from rest_framework_simplejwt.tokens import RefreshToken, AccessToken
 from rest_framework.permissions import IsAuthenticated
@@ -77,3 +77,20 @@ class UserLogout(APIView):
             return Response(status=status.HTTP_205_RESET_CONTENT)
         except Exception as e:
             return Response(status=status.HTTP_400_BAD_REQUEST)
+
+
+class NewsletterSubscriptionView(APIView):
+    """
+    parameters:
+    1. email
+    """
+    def post(self, request):
+        form = request.data
+        ser_data = NewsletterSubscriptionSerializer(data=form)
+        print('-'*100)
+        if ser_data.is_valid():
+            print(form['email'])
+            NewsletterSubscriptionModel.objects.create(email=form['email'])
+            return Response(data={'message': 'email submitted'})
+        else:
+            return Response(data={'message': 'invalid data'})

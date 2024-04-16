@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.models import Group
 from .forms import UserCreationForm, UserChangeForm
-from .models import User
+from .models import User, NewsletterSubscriptionModel
 
 
 class UserAdmin(BaseUserAdmin):
@@ -29,10 +29,10 @@ class UserAdmin(BaseUserAdmin):
     filter_horizontal = ()
 
 
+class NewsletterSubscriptionAdmin(admin.ModelAdmin):
+    list_display = ['email']
+
+
 admin.site.register(User, UserAdmin)
 admin.site.unregister(Group)
-
-
-
-
-
+admin.site.register(NewsletterSubscriptionModel, NewsletterSubscriptionAdmin)
