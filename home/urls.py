@@ -12,4 +12,5 @@ urlpatterns = [
     path('reserve/', views.ReserveView.as_view(), name='reserve'),
     path('benefit/', views.BenefitView.as_view(), name='benefit'),
     path('about/', views.AboutView.as_view(), name='about'),
+    path('banner/', views.BannerView.as_view(), name='banner'),
 ]

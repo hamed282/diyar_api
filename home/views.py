@@ -2,9 +2,9 @@ from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from .models import BaseHomeModel, FeedbackModel, SocialMediaModel, PartnerLogoModel, ReserveModel, BenefitModel,\
-    AboutModel, AboutPersonModel
+    AboutModel, AboutPersonModel, BannerModel
 from .serializers import BaseHomeSerializer, FeedbackSerializer, SocialMediaSerializer, PartnerLogoSerializer,\
-    ReserveSerializer, BenefitSerializer, AboutSerializer, AboutPersonSerializer
+    ReserveSerializer, BenefitSerializer, AboutSerializer, AboutPersonSerializer, BannerSerializer
 from rest_framework import status
 
 
@@ -71,3 +71,11 @@ class AboutView(APIView):
         ser_person = AboutPersonSerializer(instance=person, many=True)
 
         return Response(data={'about': ser_about.data, 'person': ser_person.data})
+
+
+class BannerView(APIView):
+    def get(self, request):
+        banner = BannerModel.objects.all()
+        ser_data = BannerSerializer(instance=banner, many=True)
+
+        return Response(data=ser_data.data)

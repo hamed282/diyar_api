@@ -108,6 +108,7 @@ class AboutPersonModel(models.Model):
 
 
 class AboutModel(models.Model):
+    objects = None
     image = models.ImageField(upload_to='images/about/')
     # content = CKEditor5Field(config_name='extends')
     content = HTMLField()

@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from .models import BaseHomeModel, FeedbackModel, SocialMediaModel, PartnerLogoModel, ReserveModel, BenefitModel,\
-    AboutModel, AboutPersonModel
+    AboutModel, AboutPersonModel, BannerModel
 
 
 class BaseHomeSerializer(serializers.ModelSerializer):
@@ -49,4 +49,11 @@ class AboutSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = AboutModel
+        fields = '__all__'
+
+
+class BannerSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = BannerModel
         fields = '__all__'
