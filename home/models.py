@@ -116,3 +116,22 @@ class AboutModel(models.Model):
     class Meta:
         verbose_name = 'About'
         verbose_name_plural = 'About'
+
+
+class BannerModel(models.Model):
+    objects = None
+    banner = models.ImageField(upload_to='images/banner')
+
+    class Meta:
+        verbose_name = 'Banner'
+        verbose_name_plural = 'Banner'
+
+    def clean(self):
+        if not self.pk and BannerModel.objects.exists():
+            # This below line will render error by breaking page, you will see
+            raise ValidationError(
+                "There can be only one Banner you can not add another"
+            )
+
+    def __str__(self):
+        return f'Banner'

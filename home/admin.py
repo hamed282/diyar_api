@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import BaseHomeModel, FeedbackModel, SocialMediaModel, PartnerLogoModel, ReserveModel, BenefitModel,\
-    AboutModel, AboutPersonModel, SuccessVisaModel, FixRejectionModel
+    AboutModel, AboutPersonModel, SuccessVisaModel, FixRejectionModel, BannerModel
 
 
 class FeedbackAdmin(admin.ModelAdmin):
@@ -46,3 +46,4 @@ admin.site.register(ReserveModel, ReserveAdmin)
 # admin.site.register(BenefitModel)
 admin.site.register(AboutModel)
 admin.site.register(AboutPersonModel)
+admin.site.register(BannerModel)
