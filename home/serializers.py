@@ -56,4 +56,4 @@ class BannerSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = BannerModel
-        fields = '__all__'
+        fields = ['banner']
