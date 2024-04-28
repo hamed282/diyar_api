@@ -25,6 +25,7 @@ class CategoryListSerializer(serializers.ModelSerializer):
 
 
 class SubCategoryListSerializer(serializers.ModelSerializer):
+    category = serializers.SlugRelatedField(slug_field='category', read_only=True)
 
     class Meta:
         model = SubCategoryProgramModel
@@ -39,6 +40,7 @@ class CategoryProgramSerializer(serializers.ModelSerializer):
 
 
 class SubCategoryProgramSerializer(serializers.ModelSerializer):
+    category = serializers.SlugRelatedField(slug_field='category', read_only=True)
 
     class Meta:
         model = SubCategoryProgramModel

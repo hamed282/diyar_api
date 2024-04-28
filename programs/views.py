@@ -39,7 +39,14 @@ class CategoryListView(APIView):
 
 class SubCategoryListView(APIView):
     def get(self, request):
-        subcategory_list = SubCategoryProgramModel.objects.all()
+        """
+            get parameter:
+            1. category_slug
+        """
+        category_slug = self.request.query_params.get('category_slug')
+        category = get_object_or_404(CategoryProgramModel, slug=category_slug)
+        subcategory_list = SubCategoryProgramModel.objects.filter(category=category)
+
         ser_data = SubCategoryListSerializer(instance=subcategory_list, many=True)
 
         return Response(data=ser_data.data)
