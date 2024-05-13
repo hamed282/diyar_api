@@ -7,11 +7,11 @@ from tinymce.models import HTMLField
 class CategoryProgramModel(models.Model):
     objects = None
     category = models.CharField(max_length=32)
+    banner = models.ImageField(upload_to='images/programs/category/banner/')
     icon = models.ImageField(upload_to='images/programs/category/icon/')
 
     title = models.CharField(max_length=256)
-    first_description = HTMLField()
-    second_description = HTMLField()
+    description = HTMLField()
     video = models.FileField(upload_to='videos/programs/category/')
     third_description = HTMLField()
     slug = models.SlugField()
@@ -28,10 +28,12 @@ class SubCategoryProgramModel(models.Model):
     objects = None
     category = models.ForeignKey(CategoryProgramModel, on_delete=models.CASCADE)
     subcategory = models.CharField(max_length=32)
+    banner = models.ImageField(upload_to='images/programs/subcategory/banner/')
+
     title = HTMLField()
 
-    first_description = HTMLField()
-    second_description = HTMLField()
+    content = HTMLField()
+    description = HTMLField()
     slug = models.SlugField()
 
     def save(self, **kwargs):
