@@ -13,7 +13,7 @@ class CategoryProgramModel(models.Model):
     title = models.CharField(max_length=256)
     description = HTMLField()
     video = models.FileField(upload_to='videos/programs/category/')
-    third_description = HTMLField()
+    # third_description = HTMLField()
     slug = models.SlugField()
 
     def save(self, **kwargs):
