@@ -36,7 +36,7 @@ class CategoryProgramSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = CategoryProgramModel
-        fields = ['category', 'title', 'first_description', 'second_description', 'video', 'third_description', 'slug']
+        fields = ['category', 'banner', 'icon', 'title', 'description', 'slug']
 
 
 class SubCategoryProgramSerializer(serializers.ModelSerializer):
@@ -44,4 +44,4 @@ class SubCategoryProgramSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = SubCategoryProgramModel
-        fields = ['category', 'subcategory', 'title', 'first_description', 'second_description', 'slug']
+        fields = ['category', 'subcategory', 'banner', 'title', 'content', 'description', 'slug']

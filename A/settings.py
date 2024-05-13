@@ -18,22 +18,22 @@ DEBUG = True
 if DEBUG:
     ALLOWED_HOSTS = ['*']
 
-    # DATABASES = {
-    #     'default': {
-    #         'ENGINE': 'django.db.backends.sqlite3',
-    #         'NAME': BASE_DIR / 'db.sqlite3',
-    #     }
-    # }
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'hamidehs_diyar',
-            'USER': 'hamidehs_diyar_user',
-            'PASSWORD': 'mwDx5qXq=wcc',
-            'HOST': 'localhost',
-            'PORT': '3306',
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
         }
     }
+    # DATABASES = {
+    #     'default': {
+    #         'ENGINE': 'django.db.backends.mysql',
+    #         'NAME': 'hamidehs_diyar',
+    #         'USER': 'hamidehs_diyar_user',
+    #         'PASSWORD': 'mwDx5qXq=wcc',
+    #         'HOST': 'localhost',
+    #         'PORT': '3306',
+    #     }
+    # }
     STATIC_ROOT = "staticfiles"
     STATIC_URL = 'static/'
     STATICFILES_DIRS = (
