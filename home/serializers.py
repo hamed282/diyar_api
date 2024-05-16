@@ -1,6 +1,8 @@
 from rest_framework import serializers
 from .models import BaseHomeModel, FeedbackModel, SocialMediaModel, PartnerLogoModel, ReserveModel, BenefitModel,\
     AboutModel, AboutPersonModel, BannerModel
+from journal.models import JournalModel
+from programs.models import CategoryProgramModel, SubCategoryProgramModel
 
 
 class BaseHomeSerializer(serializers.ModelSerializer):
@@ -57,3 +59,21 @@ class BannerSerializer(serializers.ModelSerializer):
     class Meta:
         model = BannerModel
         fields = ['banner']
+
+
+class JournalSearchSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = JournalModel
+        fields = '__all__'
+
+
+class CategoryProgramSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CategoryProgramModel
+        fields = '__all__'
+
+
+class SubCategoryProgramSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = SubCategoryProgramModel
+        fields = '__all__'

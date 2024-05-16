@@ -3,9 +3,14 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from .models import BaseHomeModel, FeedbackModel, SocialMediaModel, PartnerLogoModel, ReserveModel, BenefitModel,\
     AboutModel, AboutPersonModel, BannerModel
-from .serializers import BaseHomeSerializer, FeedbackSerializer, SocialMediaSerializer, PartnerLogoSerializer,\
-    ReserveSerializer, BenefitSerializer, AboutSerializer, AboutPersonSerializer, BannerSerializer
-from rest_framework import status
+from .serializers import (BaseHomeSerializer, FeedbackSerializer, SocialMediaSerializer, PartnerLogoSerializer,\
+                          ReserveSerializer, BenefitSerializer, AboutSerializer, AboutPersonSerializer, BannerSerializer,
+                          JournalSearchSerializer, CategoryProgramSerializer, SubCategoryProgramSerializer)
+from rest_framework import status, viewsets
+from journal.models import JournalModel
+from programs.models import CategoryProgramModel, SubCategoryProgramModel
+from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework import filters
 
 
 class HomeView(APIView):
@@ -79,3 +84,27 @@ class BannerView(APIView):
         ser_data = BannerSerializer(instance=banner, many=True)
 
         return Response(data=ser_data.data)
+
+
+class SearchJournalView(viewsets.ModelViewSet):
+    queryset = JournalModel.objects.all()
+    serializer_class = JournalSearchSerializer
+    filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
+    search_fields = ['title']
+    ordering_fields = '__all__'
+
+
+class SearchProgramCategoryView(viewsets.ModelViewSet):
+    queryset = CategoryProgramModel.objects.all()
+    serializer_class = CategoryProgramSerializer
+    filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
+    search_fields = ['title']
+    ordering_fields = '__all__'
+
+
+class SearchProgramSubcategoryView(viewsets.ModelViewSet):
+    queryset = SubCategoryProgramModel.objects.all()
+    serializer_class = SubCategoryProgramSerializer
+    filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
+    search_fields = ['title']
+    ordering_fields = '__all__'

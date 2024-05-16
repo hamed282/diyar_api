@@ -13,4 +13,7 @@ urlpatterns = [
     path('benefit/', views.BenefitView.as_view(), name='benefit'),
     path('about/', views.AboutView.as_view(), name='about'),
     path('banner/', views.BannerView.as_view(), name='banner'),
+    path('search_journal/', views.SearchJournalView.as_view({'get': 'list'}), name='search_journal'),
+    path('search_category/', views.SearchProgramCategoryView.as_view({'get': 'list'}), name='search_category'),
+    path('search_subcategory/', views.SearchProgramSubcategoryView.as_view({'get': 'list'}), name='search_subcategory'),
 ]
