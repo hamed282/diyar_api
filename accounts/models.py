@@ -10,7 +10,6 @@ class User(AbstractBaseUser, PermissionsMixin):
     national_code = models.CharField(max_length=15, unique=True)
     city = models.CharField(max_length=150)
     email = models.EmailField(max_length=100, unique=True)
-    password = models.CharField(max_length=100)
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
@@ -41,6 +40,6 @@ class NewsletterSubscriptionModel(models.Model):
 #     phone_number = models.CharField(max_length=20)
 #     code = models.IntegerField()
 #     created = models.DateTimeField(auto_now_add=True)
-#
-#     def __str__(self):
-#         return self.phone_number
+
+    def __str__(self):
+        return self.email
