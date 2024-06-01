@@ -14,11 +14,16 @@ class CategoryProgramModel(models.Model):
     description = HTMLField()
     # video = models.FileField(upload_to='videos/programs/category/')
     # third_description = HTMLField()
+    follow = models.BooleanField(default=False)
+    index = models.BooleanField(default=False)
+    canonical = models.CharField(max_length=256)
     slug = models.SlugField()
+    created = models.DateField(auto_now_add=True)
+    updated = models.DateField(auto_now=True)
 
-    def save(self, **kwargs):
-        self.slug = slugify(self.category, allow_unicode=True)
-        super(CategoryProgramModel, self).save(**kwargs)
+    # def save(self, **kwargs):
+    #     self.slug = slugify(self.category, allow_unicode=True)
+    #     super(CategoryProgramModel, self).save(**kwargs)
 
     def __str__(self):
         return f'{self.slug}'
@@ -34,11 +39,16 @@ class SubCategoryProgramModel(models.Model):
 
     content = HTMLField()
     description = HTMLField()
+    follow = models.BooleanField(default=False)
+    index = models.BooleanField(default=False)
+    canonical = models.CharField(max_length=256)
     slug = models.SlugField()
+    created = models.DateField(auto_now_add=True)
+    updated = models.DateField(auto_now=True)
 
-    def save(self, **kwargs):
-        self.slug = slugify(self.subcategory, allow_unicode=True)
-        super(SubCategoryProgramModel, self).save(**kwargs)
+    # def save(self, **kwargs):
+    #     self.slug = slugify(self.subcategory, allow_unicode=True)
+    #     super(SubCategoryProgramModel, self).save(**kwargs)
 
     def __str__(self):
         return f'{self.slug}'

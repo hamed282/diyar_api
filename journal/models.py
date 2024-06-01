@@ -26,14 +26,18 @@ class JournalModel(models.Model):
     title = models.CharField(max_length=100)
     banner = models.ImageField(upload_to='images/journal/')
     description = models.CharField(max_length=200)
+    follow = models.BooleanField(default=False)
+    index = models.BooleanField(default=False)
+    canonical = models.CharField(max_length=256)
     # content = CKEditor5Field(config_name='extends')
     content = HTMLField()
     created = models.DateField(auto_now_add=True)
+    updated = models.DateField(auto_now=True)
     slug = models.SlugField()
 
-    def save(self, **kwargs):
-        self.slug = slugify(self.title, allow_unicode=True)
-        super(JournalModel, self).save(**kwargs)
+    # def save(self, **kwargs):
+    #     self.slug = slugify(self.title, allow_unicode=True)
+    #     super(JournalModel, self).save(**kwargs)
 
     def __str__(self):
         return f'{self.slug}'

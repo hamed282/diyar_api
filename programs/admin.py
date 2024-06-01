@@ -25,12 +25,12 @@ from .models import CategoryProgramModel, SubCategoryProgramModel
 
 class CategoryProgramAdmin(admin.ModelAdmin):
     list_display = ['category']
-    readonly_fields = ['slug']
+    # readonly_fields = ['slug']
 
 
 class SubCategoryProgramAdmin(admin.ModelAdmin):
     list_display = ['subcategory']
-    readonly_fields = ['slug']
+    # readonly_fields = ['slug']
 
 
 admin.site.register(CategoryProgramModel, CategoryProgramAdmin)

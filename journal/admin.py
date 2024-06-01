@@ -12,7 +12,7 @@ class TagInline(admin.TabularInline):
 
 
 class JournalAdmin(admin.ModelAdmin):
-    readonly_fields = ["slug"]
+    # readonly_fields = ["slug"]
     inlines = (TagInline,)
 
 
