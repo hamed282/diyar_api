@@ -84,7 +84,10 @@ class SubCategoryProgramModel(models.Model):
     title = HTMLField()
 
     content = HTMLField()
-    description = HTMLField()
+    # description = HTMLField()
+
+    media = models.FileField(upload_to='media/programs/subcategory/')
+
     follow = models.BooleanField(default=False)
     index = models.BooleanField(default=False)
     canonical = models.CharField(max_length=256, null=True, blank=True)
