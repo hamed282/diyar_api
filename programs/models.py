@@ -79,6 +79,7 @@ class SubCategoryProgramModel(models.Model):
     objects = None
     category = models.ForeignKey(CategoryProgramModel, on_delete=models.CASCADE)
     subcategory = models.CharField(max_length=32)
+    media = models.FileField(upload_to='media/programs/subcategory/')
     banner = models.ImageField(upload_to='images/programs/subcategory/banner/')
 
     title = HTMLField()
@@ -86,7 +87,7 @@ class SubCategoryProgramModel(models.Model):
     content = HTMLField()
     # description = HTMLField()
 
-    media = models.FileField(upload_to='media/programs/subcategory/')
+
 
     follow = models.BooleanField(default=False)
     index = models.BooleanField(default=False)
