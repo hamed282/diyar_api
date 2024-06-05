@@ -28,7 +28,10 @@ class JournalModel(models.Model):
     description = models.CharField(max_length=200)
     follow = models.BooleanField(default=False)
     index = models.BooleanField(default=False)
-    canonical = models.CharField(max_length=256)
+    canonical = models.CharField(max_length=256, null=True, blank=True)
+    meta_title = models.CharField(max_length=60)
+    meta_description = models.CharField(max_length=150)
+
     # content = CKEditor5Field(config_name='extends')
     content = HTMLField()
     created = models.DateField(auto_now_add=True)

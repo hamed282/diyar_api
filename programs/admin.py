@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import CategoryProgramModel, SubCategoryProgramModel
+from .models import CategoryProgramModel, SubCategoryProgramModel, CategoryTagModel, SubcategoryTagModel
 
 
 # class ProgramModelAdmin(admin.ModelAdmin):
@@ -33,6 +33,18 @@ class SubCategoryProgramAdmin(admin.ModelAdmin):
     # readonly_fields = ['slug']
 
 
+class CategoryTagAdmin(admin.ModelAdmin):
+    # readonly_fields = ["slug"]
+    list_display = ['tag']
+
+
+class SubcategoryTagAdmin(admin.ModelAdmin):
+    # readonly_fields = ["slug"]
+    list_display = ['tag']
+
+
 admin.site.register(CategoryProgramModel, CategoryProgramAdmin)
 admin.site.register(SubCategoryProgramModel, SubCategoryProgramAdmin)
+admin.site.register(CategoryTagModel, CategoryTagAdmin)
+admin.site.register(SubcategoryTagModel, SubcategoryTagAdmin)
 

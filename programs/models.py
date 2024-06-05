@@ -4,6 +4,23 @@ from django.utils.text import slugify
 from tinymce.models import HTMLField
 
 
+class CategoryTagModel(models.Model):
+    objects = None
+    tag = models.CharField(max_length=50)
+    # slug = models.SlugField(max_length=100, unique=True)
+
+    class Meta:
+        verbose_name = 'Category Tag'
+        verbose_name_plural = 'categories Tag'
+
+    # def save(self, **kwargs):
+    #     self.slug = slugify(self.tag)
+    #     super(TagModel, self).save(**kwargs)
+
+    def __str__(self):
+        return f'{self.tag}'
+
+
 class CategoryProgramModel(models.Model):
     objects = None
     category = models.CharField(max_length=32)
@@ -16,7 +33,10 @@ class CategoryProgramModel(models.Model):
     # third_description = HTMLField()
     follow = models.BooleanField(default=False)
     index = models.BooleanField(default=False)
-    canonical = models.CharField(max_length=256)
+    canonical = models.CharField(max_length=256, null=True, blank=True)
+    meta_title = models.CharField(max_length=60)
+    meta_description = models.CharField(max_length=150)
+
     slug = models.SlugField()
     created = models.DateField(auto_now_add=True)
     updated = models.DateField(auto_now=True)
@@ -27,6 +47,32 @@ class CategoryProgramModel(models.Model):
 
     def __str__(self):
         return f'{self.slug}'
+
+
+class AddCategoryTagModel(models.Model):
+    objects = None
+    tag = models.ForeignKey(CategoryTagModel, on_delete=models.CASCADE)
+    journal = models.ForeignKey(CategoryProgramModel, on_delete=models.CASCADE, related_name='category_tag')
+
+    def __str__(self):
+        return f'{self.tag}'
+
+
+class SubcategoryTagModel(models.Model):
+    objects = None
+    tag = models.CharField(max_length=50)
+    # slug = models.SlugField(max_length=100, unique=True)
+
+    class Meta:
+        verbose_name = 'Subcategory Tag'
+        verbose_name_plural = 'Subcategories Tag'
+
+    # def save(self, **kwargs):
+    #     self.slug = slugify(self.tag)
+    #     super(TagModel, self).save(**kwargs)
+
+    def __str__(self):
+        return f'{self.tag}'
 
 
 class SubCategoryProgramModel(models.Model):
@@ -41,7 +87,10 @@ class SubCategoryProgramModel(models.Model):
     description = HTMLField()
     follow = models.BooleanField(default=False)
     index = models.BooleanField(default=False)
-    canonical = models.CharField(max_length=256)
+    canonical = models.CharField(max_length=256, null=True, blank=True)
+    meta_title = models.CharField(max_length=60)
+    meta_description = models.CharField(max_length=150)
+
     slug = models.SlugField()
     created = models.DateField(auto_now_add=True)
     updated = models.DateField(auto_now=True)
@@ -52,6 +101,15 @@ class SubCategoryProgramModel(models.Model):
 
     def __str__(self):
         return f'{self.slug}'
+
+
+class AddSubcategoryTagModel(models.Model):
+    objects = None
+    tag = models.ForeignKey(SubcategoryTagModel, on_delete=models.CASCADE)
+    journal = models.ForeignKey(CategoryProgramModel, on_delete=models.CASCADE, related_name='subcategory_tag')
+
+    def __str__(self):
+        return f'{self.tag}'
 
 
 # class ProgramDescriptionModel(models.Model):
