@@ -42,6 +42,10 @@ class JournalModel(models.Model):
     #     self.slug = slugify(self.title, allow_unicode=True)
     #     super(JournalModel, self).save(**kwargs)
 
+    def save(self, **kwargs):
+        self.slug = slugify(allow_unicode=True)
+        super(JournalModel, self).save(**kwargs)
+
     def __str__(self):
         return f'{self.slug}'
 
