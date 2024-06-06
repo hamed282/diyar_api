@@ -36,7 +36,7 @@ class JournalModel(models.Model):
     content = HTMLField()
     created = models.DateField(auto_now_add=True)
     updated = models.DateField(auto_now=True)
-    slug = models.SlugField()
+    slug = models.SlugField(allow_unicode=True)
 
     # def save(self, **kwargs):
     #     self.slug = slugify(self.title, allow_unicode=True)

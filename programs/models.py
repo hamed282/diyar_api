@@ -37,7 +37,7 @@ class CategoryProgramModel(models.Model):
     meta_title = models.CharField(max_length=60)
     meta_description = models.CharField(max_length=150)
 
-    slug = models.SlugField()
+    slug = models.SlugField(allow_unicode=True)
     created = models.DateField(auto_now_add=True)
     updated = models.DateField(auto_now=True)
 
@@ -100,7 +100,7 @@ class SubCategoryProgramModel(models.Model):
     meta_title = models.CharField(max_length=60)
     meta_description = models.CharField(max_length=150)
 
-    slug = models.SlugField()
+    slug = models.SlugField(allow_unicode=True)
     created = models.DateField(auto_now_add=True)
     updated = models.DateField(auto_now=True)
 
