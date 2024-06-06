@@ -54,7 +54,7 @@ class CategoryProgramModel(models.Model):
 
 class AddCategoryTagModel(models.Model):
     objects = None
-    tag = models.ForeignKey(CategoryTagModel, on_delete=models.CASCADE)
+    tag = models.OneToOneField(CategoryTagModel, on_delete=models.CASCADE, unique=True)
     journal = models.ForeignKey(CategoryProgramModel, on_delete=models.CASCADE, related_name='category_tag')
 
     def __str__(self):
@@ -113,7 +113,7 @@ class SubCategoryProgramModel(models.Model):
 
 class AddSubcategoryTagModel(models.Model):
     objects = None
-    tag = models.ForeignKey(SubcategoryTagModel, on_delete=models.CASCADE)
+    tag = models.OneToOneField(SubcategoryTagModel, on_delete=models.CASCADE, unique=True)
     journal = models.ForeignKey(CategoryProgramModel, on_delete=models.CASCADE, related_name='subcategory_tag')
 
     def __str__(self):
