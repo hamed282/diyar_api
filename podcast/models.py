@@ -21,3 +21,11 @@ class PodcastModel(models.Model):
     class Meta:
         verbose_name = 'Podcast'
         verbose_name_plural = 'Podcast'
+
+    def get_absolute_url(self):
+        return f'/{self.slug}'
+
+
+class Site(models.Model):
+    domain = models.CharField(max_length=256)
+    name = models.CharField(max_length=256)

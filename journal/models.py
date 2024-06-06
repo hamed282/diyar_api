@@ -49,6 +49,9 @@ class JournalModel(models.Model):
         verbose_name = 'Journal'
         verbose_name_plural = 'Journal'
 
+    def get_absolute_url(self):
+        return f'/{self.slug}'
+
 
 class AddTagModel(models.Model):
     objects = None
@@ -57,3 +60,8 @@ class AddTagModel(models.Model):
 
     def __str__(self):
         return f'{self.tag}'
+
+
+class Site(models.Model):
+    domain = models.CharField(max_length=256)
+    name = models.CharField(max_length=256)

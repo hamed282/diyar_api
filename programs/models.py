@@ -48,6 +48,9 @@ class CategoryProgramModel(models.Model):
     def __str__(self):
         return f'{self.slug}'
 
+    def get_absolute_url(self):
+        return f'/{self.slug}'
+
 
 class AddCategoryTagModel(models.Model):
     objects = None
@@ -87,8 +90,6 @@ class SubCategoryProgramModel(models.Model):
     content = HTMLField()
     # description = HTMLField()
 
-
-
     follow = models.BooleanField(default=False)
     index = models.BooleanField(default=False)
     canonical = models.CharField(max_length=256, null=True, blank=True)
@@ -105,6 +106,9 @@ class SubCategoryProgramModel(models.Model):
 
     def __str__(self):
         return f'{self.slug}'
+
+    def get_absolute_url(self):
+        return f'/{self.slug}'
 
 
 class AddSubcategoryTagModel(models.Model):
@@ -144,3 +148,8 @@ class AddSubcategoryTagModel(models.Model):
 #
 #     def __str__(self):
 #         return f'{self.slug}'
+
+
+class Site(models.Model):
+    domain = models.CharField(max_length=256)
+    name = models.CharField(max_length=256)

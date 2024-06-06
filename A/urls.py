@@ -3,7 +3,21 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView, SpectacularSwaggerView
+from django.contrib.sitemaps.views import sitemap
+from journal.sitemaps import JournalViewSitemap, JournalSnippetSitemap
+from programs.sitemaps import ProgramViewSitemap, CategoryProgramSnippetSitemap, SubcategoryProgramSnippetSitemap
+from podcast.sitemaps import PodcastViewSitemap, PodcastSnippetSitemap
 
+
+sitemaps = {
+    'journal': JournalViewSitemap,
+    'program': ProgramViewSitemap,
+    'podcast': PodcastViewSitemap,
+    'product_snippet': JournalSnippetSitemap,
+    'category_program_snippet': CategoryProgramSnippetSitemap,
+    'subcategory_program_snippet': SubcategoryProgramSnippetSitemap,
+    # 'podcast_snippet': PodcastSnippetSitemap,
+}
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -14,6 +28,7 @@ urlpatterns = [
     path('api/recommender/', include('recommender.urls', namespace='recommender')),
     path('api/podcast/', include('podcast.urls', namespace='podcast')),
     path('api/programs/', include('programs.urls', namespace='programs')),
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}),
     path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
     path('api/schema/swagger-ui/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
     path('api/schema/redoc/', SpectacularRedocView.as_view(url_name='schema'), name='redoc'),
