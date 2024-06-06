@@ -42,4 +42,4 @@ class SubcategoryProgramSnippetSitemap(Sitemap):
         return SubCategoryProgramModel.objects.all()
 
     def location(self, item):
-        return f'/program/{item.category}'
+        return f'/program/{item.category}/{item.slug}'
