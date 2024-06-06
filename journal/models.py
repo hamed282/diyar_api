@@ -55,7 +55,7 @@ class JournalModel(models.Model):
 
 class AddTagModel(models.Model):
     objects = None
-    tag = models.ForeignKey(TagModel, on_delete=models.CASCADE)
+    tag = models.OneToOneField(TagModel, on_delete=models.CASCADE, unique=True)
     journal = models.ForeignKey(JournalModel, on_delete=models.CASCADE, related_name='journal_tag')
 
     def __str__(self):
