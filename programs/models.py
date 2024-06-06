@@ -45,10 +45,6 @@ class CategoryProgramModel(models.Model):
     #     self.slug = slugify(self.category, allow_unicode=True)
     #     super(CategoryProgramModel, self).save(**kwargs)
 
-    def save(self, **kwargs):
-        self.slug = slugify(allow_unicode=True)
-        super(CategoryProgramModel, self).save(**kwargs)
-
     def __str__(self):
         return f'{self.slug}'
 
@@ -107,10 +103,6 @@ class SubCategoryProgramModel(models.Model):
     # def save(self, **kwargs):
     #     self.slug = slugify(self.subcategory, allow_unicode=True)
     #     super(SubCategoryProgramModel, self).save(**kwargs)
-
-    def save(self, **kwargs):
-        self.slug = slugify(allow_unicode=True)
-        super(SubCategoryProgramModel, self).save(**kwargs)
 
     def __str__(self):
         return f'{self.slug}'
