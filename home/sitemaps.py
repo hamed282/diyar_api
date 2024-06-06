@@ -1,33 +1,33 @@
 from django.contrib.sitemaps import Sitemap
 from django.shortcuts import reverse
-from .models import PodcastModel, Site
+from .models import BaseHomeModel, Site
 
 
-class PodcastViewSitemap(Sitemap):
+class HomeViewSitemap(Sitemap):
     changefreq = 'daily'
     priority = 0.9
 
     def get_urls(self, site=None, **kwargs):
         site = Site(domain='hamidehsakak.com', name='hamidehsakak.com')
-        return super(PodcastViewSitemap, self).get_urls(site=site, **kwargs)
+        return super(HomeViewSitemap, self).get_urls(site=site, **kwargs)
 
     def items(self):
-        return ['podcast:podcast']
+        return ['home:home']
 
     def location(self, item):
-        return '/podcast'
+        return ''
 
 
-class PodcastSnippetSitemap(Sitemap):
+class HomeSnippetSitemap(Sitemap):
     changefreq = 'daily'
     priority = 0.9
 
     def get_urls(self, site=None, **kwargs):
         site = Site(domain='hamidehsakak.com/podcast', name='hamidehsakak.com/podcast')
-        return super(PodcastSnippetSitemap, self).get_urls(site=site, **kwargs)
+        return super(HomeSnippetSitemap, self).get_urls(site=site, **kwargs)
 
     def items(self):
-        return PodcastModel.objects.all()
+        return BaseHomeModel.objects.all()
 
     def lastmod(self, item):
         return item.updated

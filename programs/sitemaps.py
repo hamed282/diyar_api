@@ -29,6 +29,9 @@ class CategoryProgramSnippetSitemap(Sitemap):
     def items(self):
         return CategoryProgramModel.objects.all()
 
+    def lastmod(self, item):
+        return item.updated
+
 
 class SubcategoryProgramSnippetSitemap(Sitemap):
     changefreq = 'daily'
@@ -43,3 +46,6 @@ class SubcategoryProgramSnippetSitemap(Sitemap):
 
     def location(self, item):
         return f'/program/{item.category}/{item.slug}'
+
+    def lastmod(self, item):
+        return item.updated

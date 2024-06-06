@@ -7,9 +7,11 @@ from django.contrib.sitemaps.views import sitemap
 from journal.sitemaps import JournalViewSitemap, JournalSnippetSitemap
 from programs.sitemaps import ProgramViewSitemap, CategoryProgramSnippetSitemap, SubcategoryProgramSnippetSitemap
 from podcast.sitemaps import PodcastViewSitemap, PodcastSnippetSitemap
+from home.sitemaps import HomeViewSitemap
 
 
 sitemaps = {
+    'home': HomeViewSitemap,
     'journal': JournalViewSitemap,
     'program': ProgramViewSitemap,
     'podcast': PodcastViewSitemap,

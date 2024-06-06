@@ -19,13 +19,17 @@ class JournalViewSitemap(Sitemap):
 
 
 class JournalSnippetSitemap(Sitemap):
+
     changefreq = 'daily'
     priority = 0.9
+    # lastmod =
 
     def get_urls(self, site=None, **kwargs):
-        site = Site(domain='hamidehsakak.com', name='hamidehsakak.com')
+        site = Site(domain='hamidehsakak.com/blog', name='hamidehsakak.com/blog')
         return super(JournalSnippetSitemap, self).get_urls(site=site, **kwargs)
 
     def items(self):
         return JournalModel.objects.all()
 
+    def lastmod(self, item):
+        return item.updated
