@@ -29,7 +29,7 @@ class SubCategoryListSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = SubCategoryProgramModel
-        fields = ['category', 'subcategory', 'title', 'slug']
+        fields = ['category', 'subcategory', 'media', 'title', 'slug']
 
 
 class CategoryProgramSerializer(serializers.ModelSerializer):
